@@ -1,0 +1,53 @@
+<?php
+// Here your code !
+$year = 2015;
+$month = 2;
+$day = 4;
+    
+    // バリデーション
+    if($month < 0 || 12 < $month){
+        print "月が不正な値だけど続行";
+    }
+    if($day < 0 || 31 < $day){
+        print "日が不正な値だけど続行";
+    }
+    
+    // ツェラーの公式
+    if($month < 3){
+        $month = $month + 12;
+        $year = $year - 1;
+    }
+    $c = floor($year / 100);
+    $first = $day;
+    $second = floor((26 * ($month + 1 )) / 10);
+    $third = $year % 100;
+    $fourth = floor($third / 4);
+    $fifth = floor((5 * $c) + $c / 4);
+    
+    $h = ( $first + $second + $third + $fourth + $fifth ) % 7;
+
+    // 曜日変換    
+    switch($h) {
+        case 0:
+            print "土曜日";
+            break;
+        case 1:
+            print "日曜日";
+            break;
+        case 2:
+            print "月曜日";
+            break;
+        case 3:
+            print "火曜日";
+            break;
+        case 4:
+            print "水曜日";
+            break;
+        case 5:
+            print "木曜日";
+            break;
+        case 6:
+            print "金曜日";
+            break;
+    }
+?>
