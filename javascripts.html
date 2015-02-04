@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>git勉強会Javascript</title>
+	</head>
+	<body>
+		<form>
+			<select name="year" id = "year">
+				<script type="text/javascript">
+				for (var i=0 ; i<=2015 ; i++){
+					document.write("<option value=\"" + i + "\">" + i + "年</option>");
+				}
+				</script>
+			</select>
+			<select name="month" id = "month">
+				<script type="text/javascript">
+				for (var i=1 ; i<=12 ; i++){
+					document.write("<option value=\"" + i + "\">" + i + "月</option>");
+				}
+				</script>
+			</select>
+			<select name="day" id = "day">
+				<script type="text/javascript">
+				for (var i=1 ; i<=31 ; i++){
+					document.write("<option value=\"" + i + "\">" + i + "日</option>");
+				}
+				</script>
+			</select>
+			<input type="button" value="調べる" onclick="main()">
+		</form>
+		<div class = "result"></div>
+		<script type="text/javascript">
+			<!--
+				function main(){
+					element = document.getElementById("year");
+					var year = element.options[element.selectedIndex].value;
+					element = document.getElementById("month");
+					var month = element.options[element.selectedIndex].value;
+					element = document.getElementById("day");
+					var day = element.options[element.selectedIndex].value;
+					
+					if(month < 3){
+						month = month + 12;
+						year = year - 1;
+					}
+					var c = Math.floor(year / 100);
+					var first = day;
+					var second = Math.floor((26*(month+1)) / 10);
+					var third = year % 100;
+					var fourth = Math.floor(third / 4);
+					var fifth = (5 * c) + Math.floor(c / 4);
+
+					var h = (first + second + third + fourth + fifth) % 7;
+
+					switch(h){
+						case 0: 
+							alert("土曜日");
+							break;
+						case 1: 
+							alert("日曜日");
+							break;
+						case 2: 
+							alert("月曜日");
+							break;
+						case 3: 
+							alert("火曜日");
+							break;
+						case 4: 
+							alert("水曜日");
+							break;
+						case 5: 
+							alert("木曜日");
+							break;
+						case 6: 
+							alert("金曜日");
+							break;
+					}
+				}
+				// -->
+		</script>
+	</body>
+</html>
